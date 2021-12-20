@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 public class GameTest {
     @Test
     void shouldSetScoreIfGameHasAlreadyTakenPlace() {
-        Game game = new Game();
+        Game game = new Game(1);
         game.setDateTime(LocalDateTime.now().minusDays(1));
         String score = "2:0";
         game.setScore(score);
@@ -19,7 +19,7 @@ public class GameTest {
     }
     @Test
     void shouldNotSetScoreIfGameIsInTheFuture() {
-        Game game = new Game();
+        Game game = new Game(2);
         game.setDateTime(LocalDateTime.now().plusDays(1));
         String score = "1:1";
         game.setScore(score);
