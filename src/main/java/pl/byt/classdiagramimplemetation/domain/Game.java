@@ -14,15 +14,9 @@ public class Game {
     private LocalDateTime dateTime;
     private Boolean privateFlag;
     private String score;
-    private Discipline discipline;
-    private Field field;
+    private final Discipline discipline;
+    private final Field field;
     private final List<Player> playerList = new ArrayList<>();
-
-    public Game(Integer gameId, LocalDateTime dateTime, Boolean privateFlag) {
-        this.gameId = gameId;
-        this.dateTime = dateTime;
-        this.privateFlag = privateFlag;
-    }
 
     public String getScore() {
         return score;
@@ -34,20 +28,30 @@ public class Game {
             log.debug("The game hasn't taken place yet!");
         }
     }
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
     public void setDateTime(LocalDateTime dateTime) {
         this.dateTime = dateTime;
     }
-    public Boolean getPrivateFlag() {
+    public Boolean isPrivate() {
         return privateFlag;
     }
-
+    public void setPrivateFlag(Boolean privateFlag) {
+        this.privateFlag = privateFlag;
+    }
     public Integer getGameId() {
         return gameId;
+    }
+    public Discipline getDiscipline() {
+        return this.discipline;
+    }
+    public Field getField() {
+        return this.field;
     }
     public List<Player> getPlayerList() {
         return playerList;
     }
     public void invitePlayer(Player player) {
-        this.playerList.add(player);
     }
 }

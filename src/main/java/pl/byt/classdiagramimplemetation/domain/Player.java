@@ -1,18 +1,18 @@
 package pl.byt.classdiagramimplemetation.domain;
 
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Objects;
 
 @Slf4j
-public class Player {
+public class Player extends Guest {
     private final Game game;
     private Integer jerseyNumber;
 
-    public Player(Game game) {
+    public Player(Game game, String name, String email) {
+        super(name, email);
         this.game = game;
-        this.game.invitePlayer(this);
+        this.game.getPlayerList().add(this);
     }
 
     public void setJerseyNumber(Integer jerseyNumber) {
